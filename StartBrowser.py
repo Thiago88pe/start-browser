@@ -21,7 +21,7 @@ O código também baixa e instala a versão mais recente do Chromedriver e do Ed
 O objetivo do código é fornecer uma maneira de iniciar e controlar facilmente os navegadores Chrome e Edge com opções e preferências específicas.
 '''
 
-def ExecuteChrome():
+def ExecuteChrome(headless=False):
     '''
     Inicia uma instância do WebDriver do Chrome com opções personalizadas.
 
@@ -48,7 +48,8 @@ def ExecuteChrome():
     options.add_argument("--start-maximized")
 
     # Iniciar o navegador em modo headless (sem interface gráfica).
-    # options.add_argument("--headless")
+    if headless:
+        options.add_argument("--headless")
 
     # Caminho absoluto onde o Chromedriver será baixado. Neste caso será criado a pasta 'bin' e o Chromedriver ficará dentro dela.
     CHROMEDRIVER_PATH = os.path.abspath('bin')
@@ -62,7 +63,7 @@ def ExecuteChrome():
     return browser
 
 
-def ExecuteEdge():
+def ExecuteEdge(headless=False):
     '''
     Inicia uma instância do WebDriver do Edge com opções personalizadas.
 
@@ -88,7 +89,8 @@ def ExecuteEdge():
     options.add_argument('--start-maximized')
 
     # Iniciar o navegador em modo headless (sem interface gráfica).
-    # options.add_argument("--headless")
+    if headless:
+        options.add_argument("--headless")
 
     # Caminho absoluto onde o Edgedriver será baixado. Neste caso será criado a pasta 'bin' e o Edgedriver ficará dentro dela.
     EDGEDRIVER_PATH = os.path.abspath('bin')
