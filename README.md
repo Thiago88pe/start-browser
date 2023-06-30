@@ -75,7 +75,22 @@ edge_browser = ExecuteEdge()
 
 O script permite personalizar várias opções e preferências para cada navegador. Você pode modificar as opções e preferências padrão nas funções ```ExecuteChrome()``` e ```ExecuteEdge()```, de acordo com suas necessidades.
 
-Além disso, você pode descomentar a linha ```options.add_argument("--headless")``` em cada função para executar os navegadores em modo headless. Isso pode ser útil para testes automatizados ou execução em segundo plano.
+Além disso, existe uma opção adicional chamada ```headless```, que permite executar os navegadores em modo headless. Isso pode ser útil para testes automatizados ou execução em segundo plano.
+
+Por padrão, a opção ```headless``` é definida como ```False```, o que significa que o navegador será executado em modo normal (com interface gráfica). Quando ```headless``` for definido como ```True```, o navegador será executado **sem** uma interface gráfica.
+
+Para ativar o modo headless, você pode adicionar um novo parâmetro ao chamar as funções ExecuteChrome() e ExecuteEdge(), como mostrado no exemplo a seguir:
+
+```
+# Executa o navegador Chrome em modo headless
+chrome_browser = ExecuteChrome(headless=True)
+```
+```
+# Executa o navegador Edge em modo headless
+edge_browser = ExecuteEdge(headless=True)
+```
+
+Ao definir ```headless=True```, a opção --headless será ativada no navegador correspondente.
 
 ## Contribuição
 
